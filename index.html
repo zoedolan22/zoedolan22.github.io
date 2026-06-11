@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoë Dolan — Digital Strategist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+
+    /* ── TOKENS ──────────────────────────────────────────── */
+    :root {
+      --linen:       #EFE9E7;
+      --ink:         #1D1612;
+      --rose:        #C4A5A0;
+      --cognac:      #7A5C4E;
+      --rose-faint:  rgba(196,165,160,0.13);
+      --rose-line:   rgba(196,165,160,0.28);
+      --ink-muted:   rgba(29,22,18,0.55);
+      --linen-muted: rgba(239,233,231,0.55);
+      --f-display:   'Bodoni Moda', Georgia, serif;
+      --f-body:      'Figtree', system-ui, sans-serif;
+    }
+
+    /* ── RESET ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--linen);
+      color: var(--ink);
+      font-family: var(--f-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      background: rgba(239,233,231,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--rose-line);
+    }
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--f-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+    }
+    .nav-links a {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cognac); }
+
+    /* ── BUTTON ──────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--cognac);
+      color: var(--linen);
+      font-family: var(--f-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.5rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 1px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn:hover {
+      background: #6a4e42;
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      padding-top: 66px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Signature: ambient rose orb — one atmospheric moment */
+    .hero-orb {
+      position: absolute;
+      width: 680px;
+      height: 680px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, rgba(196,165,160,0.26) 0%, rgba(196,165,160,0.06) 50%, transparent 72%);
+      top: 50%;
+      right: -120px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      margin-bottom: 1.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--rose);
+      flex-shrink: 0;
+    }
+    .eyebrow-text {
+      font-size: 0.725rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+    .hero-headline {
+      font-family: var(--f-display);
+      font-size: clamp(3.4rem, 5.8vw, 6rem);
+      font-weight: 500;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 1.75rem;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--rose);
+    }
+    .hero-bio {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink-muted);
+      max-width: 430px;
+      margin-bottom: 2.75rem;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+    }
+    .hero-text-link {
+      font-size: 0.875rem;
+      color: var(--ink);
+      border-bottom: 1px solid var(--rose);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .hero-text-link:hover { color: var(--cognac); border-color: var(--cognac); }
+
+    /* Photo side */
+    .hero-visual { position: relative; }
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(155deg, rgba(196,165,160,0.16) 0%, rgba(122,92,78,0.07) 100%);
+      border: 1px solid var(--rose-line);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-photo span {
+      font-family: var(--f-display);
+      font-style: italic;
+      font-size: 0.875rem;
+      color: var(--rose);
+      opacity: 0.55;
+    }
+    .hero-chip {
+      position: absolute;
+      bottom: -1.25rem;
+      left: -1.5rem;
+      background: var(--ink);
+      padding: 1.25rem 1.5rem;
+      border-radius: 2px;
+    }
+    .hero-chip-num {
+      font-family: var(--f-display);
+      font-size: 2.25rem;
+      font-weight: 500;
+      line-height: 1;
+      color: var(--linen);
+    }
+    .hero-chip-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-top: 0.3rem;
+    }
+
+    /* ── SHARED SECTION SCAFFOLDING ──────────────────────── */
+    .section { padding: 6.5rem 0; }
+    .section-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--f-display);
+      font-size: clamp(2rem, 3.2vw, 2.75rem);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .section-rule {
+      width: 2.5rem;
+      height: 1px;
+      background: var(--rose);
+      margin-top: 1.25rem;
+    }
+
+    /* ── CAPABILITIES ────────────────────────────────────── */
+    /* Flush grid separated only by 1px lines — editorial, briefing-doc feel */
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      outline: 1px solid var(--rose-line);
+    }
+    .cap-cell {
+      padding: 2.25rem 2rem;
+      border-right: 1px solid var(--rose-line);
+      border-bottom: 1px solid var(--rose-line);
+      transition: background 0.3s;
+    }
+    .cap-cell:nth-child(3n) { border-right: none; }
+    .cap-cell:nth-last-child(-n+3) { border-bottom: none; }
+    .cap-cell:hover { background: rgba(196,165,160,0.07); }
+    .cap-index {
+      font-family: var(--f-display);
+      font-style: italic;
+      font-size: 0.8125rem;
+      color: var(--rose);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .cap-title {
+      font-family: var(--f-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .cap-desc {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    /* ── WORK ────────────────────────────────────────────── */
+    .section--tinted { background: rgba(196,165,160,0.07); }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .work-card {
+      background: var(--linen);
+      border: 1px solid var(--rose-line);
+      border-radius: 2px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .work-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 48px rgba(29,22,18,0.07);
+    }
+    .work-card-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: linear-gradient(140deg, rgba(196,165,160,0.18) 0%, rgba(122,92,78,0.09) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .work-card-img span {
+      font-family: var(--f-display);
+      font-style: italic;
+      font-size: 0.8rem;
+      color: var(--rose);
+      opacity: 0.5;
+    }
+    .work-card-body {
+      padding: 1.5rem 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .work-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.875rem;
+    }
+    .tag {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rose);
+      background: var(--rose-faint);
+      border: 1px solid var(--rose-line);
+      padding: 0.2rem 0.55rem;
+      border-radius: 1px;
+    }
+    .work-card-title {
+      font-family: var(--f-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .work-card-desc {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+    .work-card-link {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--cognac);
+      letter-spacing: 0.03em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s;
+      align-self: flex-start;
+    }
+    .work-card:hover .work-card-link { gap: 0.65rem; }
+
+    /* ── ABOUT (dark section) ────────────────────────────── */
+    .about {
+      background: var(--ink);
+      padding: 6.5rem 0;
+    }
+    .about-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about .section-eyebrow { color: var(--rose); }
+    .about-headline {
+      font-family: var(--f-display);
+      font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--linen);
+      margin: 0.6rem 0 1.5rem;
+    }
+    .about-headline em { font-style: italic; color: var(--rose); }
+    .about-body {
+      font-size: 0.9375rem;
+      color: var(--linen-muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(196,165,160,0.18);
+    }
+    .stat-num {
+      font-family: var(--f-display);
+      font-size: 2.25rem;
+      font-weight: 500;
+      color: var(--linen);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-top: 0.35rem;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: rgba(196,165,160,0.07);
+      border: 1px solid rgba(196,165,160,0.15);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-photo span {
+      font-family: var(--f-display);
+      font-style: italic;
+      font-size: 0.875rem;
+      color: rgba(196,165,160,0.35);
+    }
+
+    /* ── CONTACT ─────────────────────────────────────────── */
+    .contact-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+    .form-field {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rose-line);
+      padding: 0.75rem 0;
+      font-family: var(--f-body);
+      font-size: 0.9375rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-field:focus { border-bottom-color: var(--cognac); }
+    .form-field::placeholder { color: rgba(29,22,18,0.3); }
+    textarea.form-field { resize: none; height: 110px; }
+
+    .contact-info-headline {
+      font-family: var(--f-display);
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+      margin: 0.6rem 0 1rem;
+    }
+    .contact-info-body {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--rose-faint);
+    }
+    .detail-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rose);
+      width: 72px;
+      flex-shrink: 0;
+    }
+    .detail-value {
+      font-size: 0.9375rem;
+      color: var(--ink);
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    .footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(196,165,160,0.12);
+      padding: 2.25rem 0;
+    }
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-name {
+      font-family: var(--f-display);
+      font-size: 1rem;
+      color: var(--linen);
+    }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(239,233,231,0.38);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.8125rem;
+      color: rgba(239,233,231,0.45);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--rose); }
+
+    /* ── REVEAL ANIMATION ────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .cap-grid { grid-template-columns: repeat(2, 1fr); }
+      .cap-cell:nth-child(3n) { border-right: 1px solid var(--rose-line); }
+      .cap-cell:nth-child(2n) { border-right: none; }
+      .cap-cell:nth-last-child(-n+3) { border-bottom: 1px solid var(--rose-line); }
+      .cap-cell:nth-last-child(-n+2) { border-bottom: none; }
+      .work-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-photo { display: none; }
+      .contact-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .cap-grid { grid-template-columns: 1fr; }
+      .cap-cell:nth-child(n) { border-right: none; }
+      .cap-cell:nth-last-child(1) { border-bottom: none; }
+      .work-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ───────────────────────────────────── -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Zoë Dolan</a>
+      <ul class="nav-links" role="list">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────── -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-orb" aria-hidden="true"></div>
+    <div class="hero-inner">
+
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-text">Digital Strategist · Cheymaxim Brand & Digital</span>
+        </div>
+        <h1 class="hero-headline">
+          Brands don't<br>drift. They're<br><em>directed.</em>
+        </h1>
+        <p class="hero-bio">
+          I'm Zoë Dolan. I build paid media campaigns, content architecture, and full-funnel strategy for brands that need more than good instincts. Eight years across agency environments, working with clients in financial services, ISP, B2B technology, and education impact.
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="btn">View My Work</a>
+          <a href="#capabilities" class="hero-text-link">My Capabilities →</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-photo">
+          <span>Portrait placeholder</span>
+        </div>
+        <div class="hero-chip">
+          <div class="hero-chip-num">8+</div>
+          <div class="hero-chip-label">Years in Strategy</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CAPABILITIES ──────────────────────────────────── -->
+  <section class="section" id="capabilities">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">What I Do</span>
+        <h2 class="section-title">Capabilities</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="cap-grid" role="list">
+
+        <div class="cap-cell reveal" role="listitem">
+          <span class="cap-index">i.</span>
+          <h3 class="cap-title">Paid Media Management</h3>
+          <p class="cap-desc">Google Ads (Performance Max, Search, YouTube), LinkedIn (ABM, lead gen, sponsored content), and Meta. Precision audience architecture, budget allocation, and hands-on campaign management from brief to reporting.</p>
+        </div>
+
+        <div class="cap-cell reveal reveal-delay-1" role="listitem">
+          <span class="cap-index">ii.</span>
+          <h3 class="cap-title">Campaign Architecture & Digital Strategy</h3>
+          <p class="cap-desc">Full-funnel strategy grounded in business objectives and audience insight. Channel mix, messaging hierarchy, KPI frameworks, and the structural thinking that makes campaigns actually executable.</p>
+        </div>
+
+        <div class="cap-cell reveal reveal-delay-2" role="listitem">
+          <span class="cap-index">iii.</span>
+          <h3 class="cap-title">Content Strategy & Calendar Systems</h3>
+          <p class="cap-desc">Messaging architecture for multi-segment audiences, content calendar planning, pillar development, and the editorial governance that keeps content output accountable across teams.</p>
+        </div>
+
+        <div class="cap-cell reveal" role="listitem">
+          <span class="cap-index">iv.</span>
+          <h3 class="cap-title">Copywriting & Brand Voice</h3>
+          <p class="cap-desc">Ad copy, landing pages, social copy, email, and brand voice guidelines across B2B and B2C. Writing that converts without hollowing out the brand.</p>
+        </div>
+
+        <div class="cap-cell reveal reveal-delay-1" role="listitem">
+          <span class="cap-index">v.</span>
+          <h3 class="cap-title">Analytics & Performance Reporting</h3>
+          <p class="cap-desc">Campaign synthesis and insight frameworks that drive decisions forward. Not just documenting what happened, but translating performance data into the next strategic move.</p>
+        </div>
+
+        <div class="cap-cell reveal reveal-delay-2" role="listitem">
+          <span class="cap-index">vi.</span>
+          <h3 class="cap-title">Client Advisory & Account Strategy</h3>
+          <p class="cap-desc">Multi-client portfolio management, stakeholder communication, and strategic counsel that earns trust through clarity and follow-through. Systems that serve the client, not just the campaign.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WORK ──────────────────────────────────────────── -->
+  <section class="section section--tinted" id="work">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Selected Projects</span>
+        <h2 class="section-title">Work</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="work-grid">
+
+        <article class="work-card reveal">
+          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-body">
+            <div class="work-tags">
+              <span class="tag">Google Ads</span>
+              <span class="tag">Lead Gen</span>
+              <span class="tag">Brand</span>
+            </div>
+            <h3 class="work-card-title">Herotel Business</h3>
+            <p class="work-card-desc">Campaign architecture and copywriting for an ISP targeting South African SMEs. Google Performance Max and YouTube campaigns built around the brand line "With Herotel Business, it just works." Conversion-led lead generation across regional markets.</p>
+            <span class="work-card-link">View Case Study →</span>
+          </div>
+        </article>
+
+        <article class="work-card reveal reveal-delay-1">
+          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-body">
+            <div class="work-tags">
+              <span class="tag">LinkedIn</span>
+              <span class="tag">ABM</span>
+              <span class="tag">B2B</span>
+            </div>
+            <h3 class="work-card-title">HID Amico</h3>
+            <p class="work-card-desc">B2B LinkedIn campaign strategy and ad copy for a complex access control product. Multi-tier audience targeting, precision segmentation, and campaign architecture built to navigate the constraints of the platform.</p>
+            <span class="work-card-link">View Case Study →</span>
+          </div>
+        </article>
+
+        <article class="work-card reveal reveal-delay-2">
+          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-body">
+            <div class="work-tags">
+              <span class="tag">Financial Services</span>
+              <span class="tag">Strategy</span>
+              <span class="tag">Content</span>
+            </div>
+            <h3 class="work-card-title">Finbond</h3>
+            <p class="work-card-desc">Multi-product campaign architecture for a financial services brand across diverse product categories. Structured messaging, audience segmentation, and a pitch framework built to work across channels and customer stages.</p>
+            <span class="work-card-link">View Case Study →</span>
+          </div>
+        </article>
+
+        <article class="work-card reveal">
+          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-body">
+            <div class="work-tags">
+              <span class="tag">Brand Development</span>
+              <span class="tag">Digital Growth</span>
+            </div>
+            <h3 class="work-card-title">Global Accommodation</h3>
+            <p class="work-card-desc">A two-year brand development engagement building digital presence, positioning architecture, and sustainable growth systems for an international accommodation platform from the ground up.</p>
+            <span class="work-card-link">View Case Study →</span>
+          </div>
+        </article>
+
+        <article class="work-card reveal reveal-delay-1">
+          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-body">
+            <div class="work-tags">
+              <span class="tag">Financial Services</span>
+              <span class="tag">Paid Media</span>
+              <span class="tag">Content</span>
+            </div>
+            <h3 class="work-card-title">Allan Gray</h3>
+            <p class="work-card-desc">Integrated digital campaign management for one of South Africa's leading asset managers. Multi-workstream campaign planning, content calendar coordination, and performance reporting across an active ongoing engagement.</p>
+            <span class="work-card-link">View Case Study →</span>
+          </div>
+        </article>
+
+        <article class="work-card reveal reveal-delay-2">
+          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-body">
+            <div class="work-tags">
+              <span class="tag">Education</span>
+              <span class="tag">Impact</span>
+              <span class="tag">Content Strategy</span>
+            </div>
+            <h3 class="work-card-title">Funda Wande</h3>
+            <p class="work-card-desc">Digital strategy and content approach for an education impact organisation working at scale in South Africa. Messaging architecture for multiple stakeholder audiences with distinct needs and different proximity to the work.</p>
+            <span class="work-card-link">View Case Study →</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ─────────────────────────────────────────── -->
+  <section class="about" id="about" aria-label="About Zoë">
+    <div class="about-inner">
+
+      <div class="reveal">
+        <span class="section-eyebrow">About</span>
+        <h2 class="about-headline">
+          Eight years of building<br>
+          <em>work that holds.</em>
+        </h2>
+        <p class="about-body">
+          I started in content strategy and moved into paid media and digital marketing architecture. Along the way I've built campaigns, managed content teams, written the copy, owned the analytics, and reported back on what worked. I've developed a clear point of view: good strategy requires real insight into the business problem, a channel mix built around the audience, and the kind of internal rigour that makes execution possible.
+        </p>
+        <p class="about-body">
+          My client work spans financial services (Allan Gray, Finbond), ISP and telecoms (Herotel Business), education impact (Funda Wande), B2B technology (HID Global), and international hospitality (Global Accommodation). I manage strategy, paid media, content, and copywriting simultaneously — which means I understand how these disciplines fit together, not just how each one works in isolation.
+        </p>
+        <p class="about-body">
+          Currently leading digital strategy at Cheymaxim Brand & Digital, working with clients across South Africa and internationally. Based in the Western Cape.
+        </p>
+        <div class="about-stats">
+          <div>
+            <div class="stat-num">8+</div>
+            <div class="stat-label">Years in Strategy</div>
+          </div>
+          <div>
+            <div class="stat-num">20+</div>
+            <div class="stat-label">Brands Served</div>
+          </div>
+          <div>
+            <div class="stat-num">3</div>
+            <div class="stat-label">Core Channels</div>
+          </div>
+          <div>
+            <div class="stat-num">2</div>
+            <div class="stat-label">Active Markets</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1" aria-hidden="true">
+        <div class="about-photo">
+          <span>Portrait placeholder</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACT ────────────────────────────────────────── -->
+  <section class="section" id="contact" aria-label="Contact">
+    <div class="contact-inner">
+
+      <div class="reveal">
+        <span class="section-eyebrow">Let's Work Together</span>
+        <h2 class="section-title" style="margin: 0.5rem 0 0.5rem;">Start a<br>Conversation</h2>
+        <div class="section-rule" style="margin-bottom: 2.25rem;"></div>
+        <form class="contact-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input id="name" type="text" class="form-field" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input id="email" type="email" class="form-field" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea id="message" class="form-field" placeholder="Tell me about your brief..."></textarea>
+          </div>
+          <button type="submit" class="btn" style="margin-top: 0.5rem; align-self: flex-start; padding: 0.8rem 2rem;">Send Message</button>
+        </form>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <span class="section-eyebrow">Contact</span>
+        <h3 class="contact-info-headline">Available for<br>consulting engagements.</h3>
+        <p class="contact-info-body">Available for strategic consulting engagements, paid media retainers, and senior in-house roles. Based in the Western Cape, working with clients across South Africa and internationally.</p>
+        <div class="contact-detail">
+          <span class="detail-label">Email</span>
+          <span class="detail-value">hello@zoedolan.co.za</span>
+        </div>
+        <div class="contact-detail">
+          <span class="detail-label">Based</span>
+          <span class="detail-value">Western Cape, South Africa</span>
+        </div>
+        <div class="contact-detail">
+          <span class="detail-label">Agency</span>
+          <span class="detail-value">Cheymaxim Brand & Digital</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-name">Zoë Dolan</span>
+      <span class="footer-copy">© 2026 Zoë Dolan · Digital Strategist · Western Cape</span>
+      <ul class="footer-links" role="list">
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ── SCROLL REVEAL ──────────────────────────────────── -->
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
