@@ -234,13 +234,13 @@ ul { list-style: none; }
 .hero-photo-mobile,
 .about-photo-mobile {
   display: none;
-  width: clamp(100px, 28vw, 140px);
+  width: clamp(95px, 26vw, 130px);
   aspect-ratio: 1/1;
   border-radius: 50%;
   overflow: hidden;
   border: 1px solid var(--rose-line);
   flex-shrink: 0;
-  margin-right: 0.75rem;
+  margin-right: 1.5rem;
 }
 .hero-photo-mobile img,
 .about-photo-mobile img {
