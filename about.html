@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Zoë Dolan</title>
+  <meta name="description" content="About Zoë Dolan — Digital Strategist with five years of experience across paid media, content strategy, and brand positioning for a multi-client B2B and B2C portfolio spanning finance, telecoms, NGOs, retail, travel, and luxury consumer brands.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── NAVIGATION ───────────────────────────────────── -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Zoë Dolan</a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="capabilities.html">Capabilities</a></li>
+        <li><a href="work.html">Work</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- ── ABOUT ─────────────────────────────────────────── -->
+  <section class="about" id="about" aria-label="About Zoë">
+    <div class="about-inner">
+
+      <div class="reveal">
+        <span class="section-eyebrow">About</span>
+        <h2 class="about-headline">
+          Five years of building<br>
+          <em>work that holds.</em>
+        </h2>
+        <p class="about-body">
+          I started in content marketing and grew into a full-spectrum Digital Strategist role. Along the way I've built campaigns, managed content teams, written the copy, owned the analytics, and reported back on what worked. I've developed a clear point of view: good strategy requires real insight into the business problem, a channel mix built around the audience, and the kind of internal rigour that makes execution possible.
+        </p>
+        <p class="about-body">
+          I currently manage a multi-client B2B and B2C portfolio spanning finance, telecoms, NGOs, retail, travel, and luxury consumer brands, including Allan Gray, Finbond, Herotel Business, Funda Wande, HID Global, and Global Accommodation. I own end-to-end digital strategy for each, including content and channel frameworks, campaign planning, paid media across Google Ads (including Performance Max), Meta, and LinkedIn, analytics and reporting, and brand positioning.
+        </p>
+        <p class="about-body">
+          As Head of Strategy, I act as a strategic partner to clients and stakeholders, translating business goals into clear direction for teams and mentoring team members along the way. I'm also AI-fluent, using tools like these to support strategy, content, and reporting workflows. Based in the Western Cape, working with clients across South Africa and internationally.
+        </p>
+        <div class="about-stats">
+          <div>
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Years in Strategy</div>
+          </div>
+          <div>
+            <div class="stat-num">20+</div>
+            <div class="stat-label">Brands Served</div>
+          </div>
+        </div>
+        <div class="about-tools" style="margin-top: 2.25rem;">
+          <span class="section-eyebrow" style="display: block; margin-bottom: 0.875rem;">Tools & Platforms</span>
+          <div class="work-tags">
+            <span class="tag">Google Ads</span>
+            <span class="tag">Meta Business Manager</span>
+            <span class="tag">LinkedIn Ads</span>
+            <span class="tag">Google Analytics</span>
+            <span class="tag">Zoho Analytics</span>
+            <span class="tag">Search Console</span>
+            <span class="tag">WooCommerce</span>
+            <span class="tag">Slack</span>
+            <span class="tag">Notion</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="about-photo">
+          <img src="images/zoe-about.jpg" alt="Zoë Dolan">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-name">Zoë Dolan</span>
+      <span class="footer-copy">© 2026 Zoë Dolan · Digital Strategist · Western Cape</span>
+      <ul class="footer-links" role="list">
+        <li><a href="https://www.linkedin.com/in/zoedolan/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/zo.dolan/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="footer-credit">All work shown is the property of Cheymaxim Brand &amp; Digital.</div>
+  </footer>
+
+  <!-- ── SCROLL REVEAL ──────────────────────────────────── -->
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
