@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capabilities — Zoë Dolan</title>
+  <meta name="description" content="Zoë Dolan's capabilities: paid media management, campaign architecture and digital strategy, content strategy and calendar systems, copywriting and brand voice, analytics and performance reporting, and client advisory and account strategy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── NAVIGATION ───────────────────────────────────── -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Zoë Dolan</a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="capabilities.html" class="active">Capabilities</a></li>
+        <li><a href="work.html">Work</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- ── CAPABILITIES ──────────────────────────────────── -->
+  <section class="section" id="capabilities" style="padding-top: 9rem;">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">What I Do</span>
+        <h2 class="section-title">Capabilities</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="cap-grid" role="list">
+
+        <div class="cap-cell reveal" role="listitem">
+          <span class="cap-index">i.</span>
+          <h3 class="cap-title">Paid Media Management</h3>
+          <p class="cap-desc">Google Ads (Performance Max, Search, YouTube), LinkedIn (ABM, lead gen, sponsored content), and Meta. Precision audience architecture, budget allocation, and hands-on campaign management from brief to reporting.</p>
+        </div>
+
+        <div class="cap-cell reveal reveal-delay-1" role="listitem">
+          <span class="cap-index">ii.</span>
+          <h3 class="cap-title">Campaign Architecture & Digital Strategy</h3>
+          <p class="cap-desc">Full-funnel strategy grounded in business objectives and audience insight. Channel mix, messaging hierarchy, KPI frameworks, and the structural thinking that makes campaigns actually executable.</p>
+        </div>
+
+        <div class="cap-cell reveal reveal-delay-2" role="listitem">
+          <span class="cap-index">iii.</span>
+          <h3 class="cap-title">Content Strategy & Calendar Systems</h3>
+          <p class="cap-desc">Messaging architecture for multi-segment audiences, content calendar planning, pillar development, and the editorial governance that keeps content output accountable across teams.</p>
+        </div>
+
+        <div class="cap-cell reveal" role="listitem">
+          <span class="cap-index">iv.</span>
+          <h3 class="cap-title">Copywriting & Brand Voice</h3>
+          <p class="cap-desc">Ad copy, landing pages, social copy, email, and brand voice guidelines across B2B and B2C. Writing that converts without hollowing out the brand.</p>
+        </div>
+
+        <div class="cap-cell reveal reveal-delay-1" role="listitem">
+          <span class="cap-index">v.</span>
+          <h3 class="cap-title">Analytics & Performance Reporting</h3>
+          <p class="cap-desc">Campaign synthesis and insight frameworks that drive decisions forward. Not just documenting what happened, but translating performance data into the next strategic move.</p>
+        </div>
+
+        <div class="cap-cell reveal reveal-delay-2" role="listitem">
+          <span class="cap-index">vi.</span>
+          <h3 class="cap-title">Client Advisory & Account Strategy</h3>
+          <p class="cap-desc">Multi-client portfolio management, stakeholder communication, and strategic counsel that earns trust through clarity and follow-through. Systems that serve the client, not just the campaign.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-name">Zoë Dolan</span>
+      <span class="footer-copy">© 2026 Zoë Dolan · Digital Strategist · Western Cape</span>
+      <ul class="footer-links" role="list">
+        <li><a href="https://www.linkedin.com/in/zoedolan/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/zo.dolan/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="footer-credit">All work shown is the property of Cheymaxim Brand &amp; Digital.</div>
+  </footer>
+
+  <!-- ── SCROLL REVEAL ──────────────────────────────────── -->
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
