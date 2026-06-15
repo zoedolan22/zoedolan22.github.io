@@ -234,12 +234,13 @@ ul { list-style: none; }
 .hero-photo-mobile,
 .about-photo-mobile {
   display: none;
-  width: clamp(110px, 30vw, 150px);
+  width: clamp(100px, 28vw, 140px);
   aspect-ratio: 1/1;
   border-radius: 50%;
   overflow: hidden;
   border: 1px solid var(--rose-line);
   flex-shrink: 0;
+  margin-right: 0.75rem;
 }
 .hero-photo-mobile img,
 .about-photo-mobile img {
@@ -627,7 +628,7 @@ textarea.form-field { resize: none; height: 110px; }
   .hero-visual { display: none; }
   .hero-top-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 1.25rem;
     margin-bottom: 1.75rem;
@@ -647,7 +648,7 @@ textarea.form-field { resize: none; height: 110px; }
   .about-photo-wrap { display: none; }
   .about-top-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 1.25rem;
     margin-bottom: 1.5rem;
