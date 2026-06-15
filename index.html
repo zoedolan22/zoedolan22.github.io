@@ -198,13 +198,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
-    .hero-photo span {
-      font-family: var(--f-display);
-      font-style: italic;
-      font-size: 0.875rem;
-      color: var(--rose);
-      opacity: 0.55;
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
     .hero-chip {
       position: absolute;
@@ -461,12 +462,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
-    .about-photo span {
-      font-family: var(--f-display);
-      font-style: italic;
-      font-size: 0.875rem;
-      color: rgba(196,165,160,0.35);
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
     /* ── CONTACT ─────────────────────────────────────────── */
@@ -661,9 +664,9 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
+      <div class="hero-visual">
         <div class="hero-photo">
-          <span>Portrait placeholder</span>
+          <img src="images/zoe-hero.jpg" alt="Zoë Dolan">
         </div>
         <div class="hero-chip">
           <div class="hero-chip-num">5+</div>
@@ -860,9 +863,9 @@
         </div>
       </div>
 
-      <div class="reveal reveal-delay-1" aria-hidden="true">
+      <div class="reveal reveal-delay-1">
         <div class="about-photo">
-          <span>Portrait placeholder</span>
+          <img src="images/zoe-about.jpg" alt="Zoë Dolan">
         </div>
       </div>
 
