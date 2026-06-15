@@ -328,6 +328,18 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      overflow: hidden;
+    }
+    .work-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .work-card:hover .work-card-img img {
+      transform: scale(1.04);
     }
     .work-card-img span {
       font-family: var(--f-display);
@@ -714,7 +726,7 @@
       <div class="work-grid">
 
         <article class="work-card reveal">
-          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-img"><img src="images/herotel-business.jpg" alt="Herotel Business campaign creative — Fibre that doesn't leave you gatvol"></div>
           <div class="work-card-body">
             <div class="work-tags">
               <span class="tag">Google Ads</span>
@@ -723,26 +735,24 @@
             </div>
             <h3 class="work-card-title">Herotel Business</h3>
             <p class="work-card-desc">Campaign architecture and copywriting for an ISP targeting South African SMEs. Google Performance Max and YouTube campaigns built around the brand line "With Herotel Business, it just works." Conversion-led lead generation across regional markets.</p>
-            <span class="work-card-link">View Case Study →</span>
           </div>
         </article>
 
         <article class="work-card reveal reveal-delay-1">
-          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-img"><img src="images/hid-global.jpg" alt="HID Global campaign creative — Confidence at every door"></div>
           <div class="work-card-body">
             <div class="work-tags">
               <span class="tag">LinkedIn</span>
               <span class="tag">ABM</span>
               <span class="tag">B2B</span>
             </div>
-            <h3 class="work-card-title">HID Amico</h3>
+            <h3 class="work-card-title">HID Global</h3>
             <p class="work-card-desc">B2B LinkedIn campaign strategy and ad copy for a complex access control product. Multi-tier audience targeting, precision segmentation, and campaign architecture built to navigate the constraints of the platform.</p>
-            <span class="work-card-link">View Case Study →</span>
           </div>
         </article>
 
         <article class="work-card reveal reveal-delay-2">
-          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-img"><img src="images/finbond.jpg" alt="Finbond x Cheymaxim pitch deck mockup"></div>
           <div class="work-card-body">
             <div class="work-tags">
               <span class="tag">Financial Services</span>
@@ -751,12 +761,11 @@
             </div>
             <h3 class="work-card-title">Finbond</h3>
             <p class="work-card-desc">Multi-product campaign architecture for a financial services brand across diverse product categories. Structured messaging, audience segmentation, and a pitch framework built to work across channels and customer stages.</p>
-            <span class="work-card-link">View Case Study →</span>
           </div>
         </article>
 
         <article class="work-card reveal">
-          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-img"><img src="images/global-accommodation.jpg" alt="Global Accommodation campaign creative — New Zealand in Two Weeks"></div>
           <div class="work-card-body">
             <div class="work-tags">
               <span class="tag">Brand Development</span>
@@ -764,26 +773,24 @@
             </div>
             <h3 class="work-card-title">Global Accommodation</h3>
             <p class="work-card-desc">A two-year brand development engagement building digital presence, positioning architecture, and sustainable growth systems for an international accommodation platform from the ground up.</p>
-            <span class="work-card-link">View Case Study →</span>
           </div>
         </article>
 
         <article class="work-card reveal reveal-delay-1">
-          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-img"><img src="images/allan-gray-philanthropies.jpg" alt="Allan & Gill Gray Philanthropies campaign creative — Application Requirements"></div>
           <div class="work-card-body">
             <div class="work-tags">
-              <span class="tag">Financial Services</span>
+              <span class="tag">Entrepreneurship</span>
               <span class="tag">Paid Media</span>
               <span class="tag">Content</span>
             </div>
-            <h3 class="work-card-title">Allan Gray</h3>
-            <p class="work-card-desc">Integrated digital campaign management for one of South Africa's leading asset managers. Multi-workstream campaign planning, content calendar coordination, and performance reporting across an active ongoing engagement.</p>
-            <span class="work-card-link">View Case Study →</span>
+            <h3 class="work-card-title">Allan & Gill Gray Philanthropies</h3>
+            <p class="work-card-desc">Integrated digital campaign management for entrepreneurship development initiatives, including application drive campaigns and content calendar coordination. Multi-workstream planning and performance reporting across an active ongoing engagement.</p>
           </div>
         </article>
 
         <article class="work-card reveal reveal-delay-2">
-          <div class="work-card-img"><span>Project image</span></div>
+          <div class="work-card-img"><img src="images/funda-wande.jpg" alt="Funda Wande campaign creative — Maths is not a path, it's a playground"></div>
           <div class="work-card-body">
             <div class="work-tags">
               <span class="tag">Education</span>
@@ -792,7 +799,6 @@
             </div>
             <h3 class="work-card-title">Funda Wande</h3>
             <p class="work-card-desc">Digital strategy and content approach for an education impact organisation working at scale in South Africa. Messaging architecture for multiple stakeholder audiences with distinct needs and different proximity to the work.</p>
-            <span class="work-card-link">View Case Study →</span>
           </div>
         </article>
 
