@@ -575,6 +575,15 @@
       transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--rose); }
+    .footer-credit {
+      max-width: 1180px;
+      margin: 1.25rem auto 0;
+      padding: 1.25rem 2.5rem 0;
+      border-top: 1px solid rgba(196,165,160,0.1);
+      font-size: 0.7rem;
+      color: rgba(239,233,231,0.28);
+      text-align: center;
+    }
 
     /* ── REVEAL ANIMATION ────────────────────────────────── */
     .reveal {
@@ -638,10 +647,10 @@
 
       <div class="hero-content">
         <div class="hero-eyebrow">
-          <span class="eyebrow-text">Digital Strategist · Cheymaxim Brand & Digital</span>
+          <span class="eyebrow-text">Digital Strategist</span>
         </div>
         <h1 class="hero-headline">
-          Brands don't<br>drift. They're<br><em>directed.</em>
+          Zoë Dolan,<br><em>Digital Marketing Strategist</em>
         </h1>
         <p class="hero-bio">
           I'm Zoë Dolan. I build paid media campaigns, content architecture, and full-funnel strategy for brands that need more than good instincts. Five years in digital marketing, managing a multi-client B2B and B2C portfolio spanning finance, telecoms, NGOs, retail, travel, and luxury consumer brands.
@@ -834,14 +843,6 @@
             <div class="stat-num">20+</div>
             <div class="stat-label">Brands Served</div>
           </div>
-          <div>
-            <div class="stat-num">3</div>
-            <div class="stat-label">Core Channels</div>
-          </div>
-          <div>
-            <div class="stat-num">2</div>
-            <div class="stat-label">Active Markets</div>
-          </div>
         </div>
         <div class="about-tools" style="margin-top: 2.25rem;">
           <span class="section-eyebrow" style="display: block; margin-bottom: 0.875rem;">Tools & Platforms</span>
@@ -876,18 +877,21 @@
         <span class="section-eyebrow">Let's Work Together</span>
         <h2 class="section-title" style="margin: 0.5rem 0 0.5rem;">Start a<br>Conversation</h2>
         <div class="section-rule" style="margin-bottom: 2.25rem;"></div>
-        <form class="contact-form" novalidate>
+        <form class="contact-form" action="https://formsubmit.co/zoedolan22@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New enquiry — zoedolan22.github.io">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
           <div class="form-group">
             <label class="form-label" for="name">Name</label>
-            <input id="name" type="text" class="form-field" placeholder="Your name">
+            <input id="name" name="name" type="text" class="form-field" placeholder="Your name" required>
           </div>
           <div class="form-group">
             <label class="form-label" for="email">Email</label>
-            <input id="email" type="email" class="form-field" placeholder="your@email.com">
+            <input id="email" name="_replyto" type="email" class="form-field" placeholder="your@email.com" required>
           </div>
           <div class="form-group">
             <label class="form-label" for="message">Message</label>
-            <textarea id="message" class="form-field" placeholder="Tell me about your brief..."></textarea>
+            <textarea id="message" name="message" class="form-field" placeholder="Tell me about your brief..." required></textarea>
           </div>
           <button type="submit" class="btn" style="margin-top: 0.5rem; align-self: flex-start; padding: 0.8rem 2rem;">Send Message</button>
         </form>
@@ -899,15 +903,11 @@
         <p class="contact-info-body">Available for strategic consulting engagements, paid media retainers, and senior in-house roles. Based in the Western Cape, working with clients across South Africa and internationally.</p>
         <div class="contact-detail">
           <span class="detail-label">Email</span>
-          <span class="detail-value">hello@zoedolan.co.za</span>
+          <span class="detail-value">zoedolan22@gmail.com</span>
         </div>
         <div class="contact-detail">
           <span class="detail-label">Based</span>
           <span class="detail-value">Western Cape, South Africa</span>
-        </div>
-        <div class="contact-detail">
-          <span class="detail-label">Agency</span>
-          <span class="detail-value">Cheymaxim Brand & Digital</span>
         </div>
       </div>
 
@@ -920,10 +920,11 @@
       <span class="footer-name">Zoë Dolan</span>
       <span class="footer-copy">© 2026 Zoë Dolan · Digital Strategist · Western Cape</span>
       <ul class="footer-links" role="list">
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/zoedolan/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/zo.dolan/" target="_blank" rel="noopener">Instagram</a></li>
       </ul>
     </div>
+    <div class="footer-credit">All work shown is the property of Cheymaxim Brand &amp; Digital.</div>
   </footer>
 
   <!-- ── SCROLL REVEAL ──────────────────────────────────── -->
