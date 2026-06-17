@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
 
@@ -52,11 +52,11 @@
         </p>
         <div class="about-stats">
           <div>
-            <div class="stat-num">5+</div>
+            <div class="stat-num"><span class="count-up" data-target="5">0</span>+</div>
             <div class="stat-label">Years in Strategy</div>
           </div>
           <div>
-            <div class="stat-num">20+</div>
+            <div class="stat-num"><span class="count-up" data-target="20">0</span>+</div>
             <div class="stat-label">Brands Served</div>
           </div>
         </div>
@@ -155,6 +155,34 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
     revealEls.forEach(el => obs.observe(el));
+
+    // Count-up animation for stat numbers
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const counters = document.querySelectorAll('.count-up');
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target, 10);
+          if (prefersReducedMotion) {
+            el.textContent = target;
+          } else {
+            const duration = 1100;
+            const start = performance.now();
+            function tick(now) {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.round(eased * target);
+              if (progress < 1) requestAnimationFrame(tick);
+              else el.textContent = target;
+            }
+            requestAnimationFrame(tick);
+          }
+          counterObs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(el => counterObs.observe(el));
   </script>
 
 </body>
