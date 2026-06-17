@@ -80,6 +80,36 @@ ul { list-style: none; }
   border-bottom-color: var(--rose);
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22px;
+  height: 15px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 210;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--ink);
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.25s ease;
+}
+.nav.menu-open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav.menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav.menu-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
 /* ── BUTTON ──────────────────────────────────────────── */
 .btn {
   display: inline-flex;
@@ -774,7 +804,48 @@ textarea.form-field { resize: none; height: 110px; }
   .featured-desc { max-width: none; }
 }
 @media (max-width: 600px) {
+  .nav-toggle { display: flex; }
   .nav-links { display: none; }
+  .nav.menu-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    position: fixed;
+    top: 66px;
+    left: 0;
+    right: 0;
+    background: rgba(239,233,231,0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--rose-line);
+    padding: 0.25rem 0;
+    z-index: 199;
+    animation: dropdown-in 0.25s ease both;
+  }
+  .nav.menu-open .nav-links li {
+    border-bottom: 1px solid var(--rose-faint);
+  }
+  .nav.menu-open .nav-links li:last-child { border-bottom: none; }
+  .nav.menu-open .nav-links a {
+    display: block;
+    padding: 1rem 2.5rem;
+    font-size: 0.95rem;
+    border-bottom: none;
+    border-left: 2px solid transparent;
+  }
+  .nav.menu-open .nav-links a.active {
+    color: var(--rose);
+    border-left-color: var(--rose);
+    background: rgba(196,165,160,0.06);
+  }
+  @keyframes dropdown-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav.menu-open .nav-links { animation: none; }
+  }
   .cap-grid { grid-template-columns: 1fr; }
   .cap-cell:nth-child(n) { border-right: none; }
   .cap-cell:nth-last-child(1) { border-bottom: none; }
