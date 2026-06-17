@@ -625,6 +625,7 @@ ul { list-style: none; }
   object-position: center top;
   display: block;
 }
+.about-mobile-side { display: none; }
 
 /* ── CONTACT ─────────────────────────────────────────── */
 .contact-inner {
@@ -792,6 +793,37 @@ textarea.form-field { resize: none; height: 110px; }
     flex: 1;
   }
   .about-photo-mobile { display: flex; }
+  .about-mobile-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+  .about-stats-mini {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .stat-mini {
+    font-family: var(--f-display);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: center;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .stat-mini-label {
+    display: block;
+    font-family: var(--f-body);
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-top: 0.2rem;
+  }
+  .about-stats { display: none; }
   .contact-inner { grid-template-columns: 1fr; }
   .featured-work { padding: 4.5rem 0; }
   .featured-block {
