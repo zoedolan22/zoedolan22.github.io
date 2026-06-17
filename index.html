@@ -8,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 
   <!-- ── NAVIGATION ───────────────────────────────────── -->
-  <nav class="nav" aria-label="Main navigation">
+  <nav class="nav" id="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">Zoë Dolan</a>
       <ul class="nav-links" role="list">
@@ -22,7 +22,12 @@
         <li><a href="capabilities.html">Capabilities</a></li>
         <li><a href="work.html">Work</a></li>
       </ul>
-      <a href="index.html#contact" class="btn">Get in Touch</a>
+      <div class="nav-right">
+        <a href="index.html#contact" class="btn">Get in Touch</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -183,6 +188,32 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
     revealEls.forEach(el => obs.observe(el));
+
+    // Mobile nav dropdown toggle
+    const siteNav = document.getElementById('site-nav');
+    const navToggle = siteNav.querySelector('.nav-toggle');
+    navToggle.addEventListener('click', () => {
+      const isOpen = siteNav.classList.toggle('menu-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    siteNav.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        siteNav.classList.remove('menu-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        siteNav.classList.remove('menu-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('click', (e) => {
+      if (siteNav.classList.contains('menu-open') && !siteNav.contains(e.target)) {
+        siteNav.classList.remove('menu-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   </script>
 
 </body>
