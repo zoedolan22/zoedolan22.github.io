@@ -347,11 +347,13 @@ ul { list-style: none; }
   order: 1;
 }
 .featured-img-wrap {
+  display: block;
   width: 100%;
   aspect-ratio: 1/1;
   border-radius: 2px;
   overflow: hidden;
   border: 1px solid var(--rose-line);
+  cursor: pointer;
 }
 .featured-img-wrap img {
   width: 100%;
