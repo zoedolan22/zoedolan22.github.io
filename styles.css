@@ -22,6 +22,14 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  animation: page-fade-in 0.5s ease both;
+}
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
 }
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
@@ -115,6 +123,15 @@ ul { list-style: none; }
   right: -120px;
   transform: translateY(-50%);
   pointer-events: none;
+  animation: orb-drift 22s ease-in-out infinite;
+}
+@keyframes orb-drift {
+  0%   { transform: translateY(-50%) translateX(0) scale(1); }
+  50%  { transform: translateY(-53%) translateX(-18px) scale(1.04); }
+  100% { transform: translateY(-50%) translateX(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb { animation: none; }
 }
 .hero-inner {
   max-width: 1180px;
@@ -181,6 +198,15 @@ ul { list-style: none; }
   transition: color 0.2s, border-color 0.2s;
 }
 .hero-text-link:hover { color: var(--cognac); border-color: var(--cognac); }
+.hero-text-link .arrow,
+.work-card-link .arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.hero-text-link:hover .arrow,
+.work-card:hover .work-card-link .arrow {
+  transform: translateX(4px);
+}
 
 /* Photo side */
 .hero-visual { position: relative; }
@@ -281,6 +307,15 @@ ul { list-style: none; }
   height: 1px;
   background: var(--rose);
   margin-top: 1.25rem;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+.reveal.visible .section-rule {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-rule { transform: scaleX(1); transition: none; }
 }
 
 /* ── CAPABILITIES ────────────────────────────────────── */
@@ -387,6 +422,7 @@ ul { list-style: none; }
 }
 .featured-cta .section-rule {
   margin: 0 auto 1.75rem;
+  transform-origin: center;
 }
 
 
