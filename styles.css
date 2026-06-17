@@ -153,11 +153,11 @@ ul { list-style: none; }
   right: -120px;
   transform: translateY(-50%);
   pointer-events: none;
-  animation: orb-drift 22s ease-in-out infinite;
+  animation: orb-drift 16s ease-in-out infinite;
 }
 @keyframes orb-drift {
   0%   { transform: translateY(-50%) translateX(0) scale(1); }
-  50%  { transform: translateY(-53%) translateX(-18px) scale(1.04); }
+  50%  { transform: translateY(-58%) translateX(-45px) scale(1.12); }
   100% { transform: translateY(-50%) translateX(0) scale(1); }
 }
 @media (prefers-reduced-motion: reduce) {
