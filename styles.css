@@ -321,7 +321,73 @@ ul { list-style: none; }
   line-height: 1.7;
 }
 
-/* ── WORK ────────────────────────────────────────────── */
+/* ── FEATURED WORK (home page highlight) ─────────────── */
+.featured-work {
+  padding: 7.5rem 0;
+}
+.featured-work-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+.featured-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+  margin-bottom: 8rem;
+}
+.featured-block:last-of-type {
+  margin-bottom: 5rem;
+}
+.featured-block.reverse .featured-img-wrap {
+  order: 2;
+}
+.featured-block.reverse .featured-text {
+  order: 1;
+}
+.featured-img-wrap {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid var(--rose-line);
+}
+.featured-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.featured-block:hover .featured-img-wrap img {
+  transform: scale(1.035);
+}
+.featured-text .work-tags { margin-bottom: 1.25rem; }
+.featured-title {
+  font-family: var(--f-display);
+  font-size: clamp(1.8rem, 2.6vw, 2.35rem);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 1.1rem;
+  letter-spacing: -0.01em;
+}
+.featured-desc {
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  line-height: 1.8;
+  max-width: 420px;
+}
+.featured-cta {
+  text-align: center;
+}
+.featured-cta .section-rule {
+  margin: 0 auto 1.75rem;
+}
+
+
 .section--tinted { background: rgba(196,165,160,0.07); }
 .work-grid {
   display: grid;
@@ -659,6 +725,15 @@ textarea.form-field { resize: none; height: 110px; }
   }
   .about-photo-mobile { display: flex; }
   .contact-inner { grid-template-columns: 1fr; }
+  .featured-work { padding: 4.5rem 0; }
+  .featured-block {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    margin-bottom: 4rem;
+  }
+  .featured-block.reverse .featured-img-wrap { order: 0; }
+  .featured-block.reverse .featured-text { order: 0; }
+  .featured-desc { max-width: none; }
 }
 @media (max-width: 600px) {
   .nav-links { display: none; }
