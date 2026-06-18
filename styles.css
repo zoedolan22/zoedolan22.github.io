@@ -540,6 +540,31 @@ ul { list-style: none; }
 }
 .case-cta .section-rule { margin: 0 auto 1.75rem; transform-origin: center; }
 
+.case-did {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+.case-did-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 3rem;
+  margin-top: 1.5rem;
+}
+.case-did-item {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.case-did-item::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--rose);
+}
+
 /* ── FEATURED WORK (home page highlight) ─────────────── */
 .featured-work {
   padding: 7.5rem 0;
@@ -1055,4 +1080,5 @@ textarea.form-field { resize: none; height: 110px; }
   .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
   .case-gallery { grid-template-columns: 1fr; }
   .case-stat-grid { grid-template-columns: 1fr; }
+  .case-did-list { grid-template-columns: 1fr; }
 }
