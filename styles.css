@@ -145,19 +145,20 @@ ul { list-style: none; }
 /* Signature: ambient rose orb — one atmospheric moment */
 .hero-orb {
   position: absolute;
-  width: 680px;
-  height: 680px;
+  width: 860px;
+  height: 860px;
   border-radius: 50%;
-  background: radial-gradient(circle at 50% 50%, rgba(196,165,160,0.26) 0%, rgba(196,165,160,0.06) 50%, transparent 72%);
+  background: radial-gradient(circle at 50% 50%, rgba(196,165,160,0.6) 0%, rgba(196,165,160,0.32) 38%, rgba(196,165,160,0.12) 60%, transparent 78%);
   top: 50%;
-  right: -120px;
+  right: -60px;
   transform: translateY(-50%);
   pointer-events: none;
-  animation: orb-drift 16s ease-in-out infinite;
+  filter: blur(2px);
+  animation: orb-drift 13s ease-in-out infinite;
 }
 @keyframes orb-drift {
   0%   { transform: translateY(-50%) translateX(0) scale(1); }
-  50%  { transform: translateY(-58%) translateX(-45px) scale(1.12); }
+  50%  { transform: translateY(-62%) translateX(-110px) scale(1.22); }
   100% { transform: translateY(-50%) translateX(0) scale(1); }
 }
 @media (prefers-reduced-motion: reduce) {
